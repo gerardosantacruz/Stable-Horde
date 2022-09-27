@@ -1,5 +1,6 @@
 import requests, json, os, time, argparse, base64
-from logger import logger, set_logger_verbosity, quiesce_logger, test_logger
+#from logger import logger, set_logger_verbosity, quiesce_logger, test_logger
+from logger import logger
 from PIL import Image, ImageFont, ImageDraw, ImageFilter, ImageOps
 from io import BytesIO
 
@@ -24,7 +25,7 @@ imgen_params = {
 submit_dict = {
 }
 
-@logger.catch
+#@logger.catch
 def generate():
     final_filename = args.filename if args.filename else crd.filename
     final_imgen_params = {
@@ -55,8 +56,8 @@ def generate():
     else:
         print(submit_req.text)
 
-set_logger_verbosity(args.verbosity)
-quiesce_logger(args.quiet)
+#set_logger_verbosity(args.verbosity)
+#quiesce_logger(args.quiet)
 
 try:
     import cliRequestsData as crd
